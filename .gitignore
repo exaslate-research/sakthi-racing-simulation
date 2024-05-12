@@ -2,6 +2,7 @@
 *.swp
 *.pvsm
 *.foam
+log.*
 extendedFeatureEdgeMesh/
 polyMesh/
 processor*/
@@ -15,4 +16,4 @@ processor*/
 8*
 9*
 0.*
-*.eMesh
+*.eMesh*

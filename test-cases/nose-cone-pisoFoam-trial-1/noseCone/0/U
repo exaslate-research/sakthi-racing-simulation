@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2212                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+flowVelocity    (0 0 -1);
+
+pressure        0;
+
+turbulentKE     0.24;
+
+turbulentOmega  1.78;
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 -1);
+
+boundaryField
+{
+    left
+    {
+        type            fixedValue;
+        value           uniform (0 0 -1);
+    }
+
+    right
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (0 0 -1);
+    }
+
+    bottom
+    {
+        type        fixedValue;
+        value       uniform (0 0 0);
+    }
+
+    nose
+    {
+        type            noSlip;
+    }
+
+    top
+    {
+        type        zeroGradient;
+    }
+
+    "(front|back)"
+    {
+        type        zeroGradient;
+    }
+
+    "proc.*"
+    {
+        type            processor;
+    }
+}
+
+
+// ************************************************************************* //

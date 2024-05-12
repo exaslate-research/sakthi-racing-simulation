@@ -1,0 +1,20 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+# Do the Spalart-Allmaras steady-state case
+(cd noseCone && foamRunTutorials)
+
+if notTest "$@"
+then
+    # Clone the steady-state case to the LES case
+    cloneParallelCase noseCone noseConeLES
+
+    # Do the LES case
+    cp -f lesFiles/Allrun noseConeLES/
+
+    (cd noseConeLES && foamRunTutorials)
+fi
+
+#------------------------------------------------------------------------------
