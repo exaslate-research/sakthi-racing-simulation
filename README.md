@@ -2,5 +2,8 @@
 
 ## Large files
 
-Reference material: https://drive.google.com/drive/folders/10HEl8S15l1saXL53adcTu6DyxDR25w_-?usp=drive_link
+Reference material: https://drive.google.com/drive/folders/1ID3vvrmtrSlqKWsgCY9TVGG0c6MsuoK0?usp=sharing
 
+## Test case outlines
+
+test-cases/nose-cone-simpleFoam: steady state solver on nose cone
